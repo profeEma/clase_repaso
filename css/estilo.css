@@ -1,0 +1,141 @@
+/* GENERAL */
+.grid{
+    display:grid;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, auto);
+}
+header{grid-area:header;padding:20px 0;}
+main{grid-area:main;}
+footer{grid-area:footer;padding: 50px 0;}
+.flex, ul{display:flex;}
+li{list-style-type: none;}
+a{text-decoration: none;padding:10px;}
+.img-fluid{width:100%;}
+h1, h2, h3, p, a{font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+.bgColorPrimario{background-color:lightgrey;}
+.mb-20{margin-bottom:20px;}
+.mt-20{margin-top:20px;}
+.sticky{position:sticky;top:0;z-index: 99999;}
+.borderBottom{border-bottom: 1px solid grey;}
+.borderTop{border-top: 1px solid grey;}
+.tituloServicios{grid-area: titulo;}
+.imgDer{grid-area:imgDer;}
+.imgIzq{grid-area: imgIzq;}
+.textoDer{grid-area:textoDer;}
+.textoIzq{grid-area:textoIzq;}
+
+
+/* INTERVALO MOBILE */
+@media screen and (max-width:768px){
+    .imgEncabezado{display: none;}
+    .flex{justify-content: center;}
+    ul{flex-wrap: wrap;}
+    a{font-size:1.3rem;}
+    footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contacto-g-main{display:flex;flex-direction:column;align-items:center;}
+    input{margin:7px 0;}
+    h2{text-align: center;}
+    .servicios-g-main{display:grid;grid-template-areas: "titulo" "imgIzq" "textoDer" "imgDer" "textoIzq";grid-template-columns: 100%;grid-template-rows: repeat(5,auto);grid-row-gap: 10px;}
+    /* GRADIENTES */
+main{background-image: radial-gradient(blue, white, red, yellow)} /* propiedad: funcion [radial-gradient() || linear-gradient()*/
+
+}
+/* INTERVALO TABLET */
+@media screen and (min-width:769px) and (max-width:1023px) {
+    
+}
+/* INTERVALO DESKTOP */
+@media screen and (min-width:1024px) {
+    nav{display: flex;
+        width: 100%;
+        justify-content: flex-end;}
+    a{font-size:2rem;}
+    h2{font-size:2.3rem;text-align: center;}
+    .m-grid{
+        display:grid;
+        grid-template-areas:
+        "imgEncabezado imgEncabezado"
+        "titulo titulo"
+        "textoTitulo textoTitulo"
+        "imgTexto textoImagen";
+        grid-template-columns: 50% 50%;
+        grid-template-rows: repeat(4, auto);
+    }
+    .textoImagen p {padding:20px;}
+    .imgEncabezado{grid-area:imgEncabezado;}
+    .titulo{grid-area:titulo;}
+    .textoTitulo{grid-area:textoTitulo;}
+    .imgTexto{grid-area:imgTexto;}
+    .textoImagen{grid-area:textoImagen;}
+    footer{display: flex;justify-content: space-around;}
+    .contacto-g-main{
+        display:grid;
+        grid-template-areas: 
+        "tituloContacto tituloContacto"
+        "form tituloMapa"
+        "form mapa";
+        grid-template-columns: 50% 50%;
+        grid-template-rows: repeat(3, auto);
+    }
+    .tituloContacto{grid-area:tituloContacto;}
+    form{grid-area:form;}
+    .tituloMapa{grid-area: tituloMapa;}
+    .mapa{grid-area:mapa;}
+    .mapa iframe{height: 600px;}
+    .flex-column{display:flex;flex-direction: column;align-items: stretch;}
+    .p-50{padding:50px;}
+    .servicios-g-main{display:grid;grid-template-areas: "titulo titulo" "imgIzq textoDer" "textoIzq imgDer";grid-template-columns: repeat(2,50%);grid-template-rows: repeat(3,auto);grid-row-gap: 50px;}
+/* TRANSFORM  */
+/* TRANSLATE */
+/* footer div img {transform: translate(10px, -50px);} */
+/* ROTATE */
+/* footer div img {transform:rotate(-45deg);} */
+/* SCALE */
+/* footer div img {transform: scale(-1,-1);} */
+/* SKEW */
+/* footer div img {transform: skew(45deg, 60deg);} */
+/* TRANSITION */
+li a{
+    background-color: lightblue;
+    margin: 2px;
+    transition:background-color 3s, color 2s;
+} 
+li a:hover{
+    background-color: blueviolet;
+    color: white;
+}
+input {width: 200px;transition: all 2s;}
+input:focus{width: 300px;font-size:1.5rem;}
+}
+/* ANIMACION */
+/* 1er parte: linea de tiempo */
+@keyframes animacionLogo {
+    0%{transform:rotateX(100deg);}
+    25%{transform:scale(2,2);}
+    50%{transform:skewX(90deg);}
+    75%{transform:translateY(-50px);}
+    100%{transform:rotate(0deg);}
+}
+/* 2da parte: asignacion de la animacion */
+footer div img {
+    animation-name: animacionLogo;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-duration: 4s;
+    animation-delay: 2s;
+}
+@keyframes aparecer {
+    0%{opacity:0;}
+    100%{opacity: 1;}
+}
+h2{animation-name: aparecer;
+animation-duration: 2s;
+animation-iteration-count: 10;}
